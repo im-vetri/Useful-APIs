@@ -13,7 +13,6 @@ Thank you for your interest in contributing! Please follow these steps.
    Always create a new branch for your change:
    ```bash
    git checkout -b add-new-api
-
 	3.	Make your changes
 	•	Add new API files under /apis/
 	•	Improve or add documentation in docs.md
