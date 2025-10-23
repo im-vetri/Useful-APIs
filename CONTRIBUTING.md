@@ -35,6 +35,7 @@ git push origin add-new-api
 ⸻
 
 Hacktoberfest Guidelines
+
 	•	Only work on issues labeled hacktoberfest.
 	•	Keep PRs small and focused.
 	•	Include example responses or documentation updates if relevant.
@@ -43,6 +44,7 @@ Hacktoberfest Guidelines
 ⸻
 
 Notes
+
 	•	Keep PRs focused and easy to review.
 	•	Follow a friendly and inclusive tone in code, comments, and documentation.
 	•	Check for existing issues to avoid duplicates.
