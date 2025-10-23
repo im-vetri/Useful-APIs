@@ -12,7 +12,7 @@ Thank you for your interest in contributing! Please follow these steps.
 2. **Create a descriptive branch**  
    Always create a new branch for your change:
    ```bash
-   git checkout -b add-new-api
+   git checkout -b feature/add-new-api
    ```
 
 3. **Make your changes**
@@ -22,7 +22,7 @@ Thank you for your interest in contributing! Please follow these steps.
 4. **Stage, commit, and push**
    ```bash
    git add .
-   git commit -m "feat: add new API"
+   git commit -m "feature: add new API"
    git push origin add-new-api
    ```
 
