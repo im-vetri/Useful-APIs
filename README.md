@@ -27,6 +27,31 @@ Examples:
 - [Browser Example](./examples/randomUser-browser.html)
 - [Node.js Example](./examples/randomUser-node.js)
 
+### 2. Chuck Norris Jokes
+
+Fetch random Chuck Norris jokes, search by keyword, or browse by category.
+
+Features:
+- Get random jokes
+- Search jokes by keyword
+- Browse by category
+- Fetch specific jokes by ID
+- Works in Node.js and Browser
+- Zero dependencies
+
+Quick Start:
+```javascript
+const chuckNorrisAPI = require("./apis/chuckNorris/chuckNorris.js");
+const joke = await chuckNorrisAPI.getRandomJoke();
+console.log(joke.value);
+```
+
+Documentation: [Read Full Docs](./docs/chuckNorris.md)
+
+Examples:
+- [Browser Example](./examples/chuckNorris-browser.html)
+- [Node.js Example](./examples/chuckNorris-node.js)
+
 ## Project Structure
 
 ```
@@ -36,12 +61,19 @@ Useful-APIs/
 │   │   ├── randomUser.js
 │   │   ├── package.json
 │   │   └── README.md
+│   ├── chuckNorris/
+│   │   ├── chuckNorris.js
+│   │   ├── package.json
+│   │   └── README.md
 │   └── [future-apis]/
 ├── docs/
-│   └── randomUser.md
+│   ├── randomUser.md
+│   └── chuckNorris.md
 ├── examples/
 │   ├── randomUser-browser.html
-│   └── randomUser-node.js
+│   ├── randomUser-node.js
+│   ├── chuckNorris-browser.html
+│   └── chuckNorris-node.js
 ├── README.md
 ├── CONTRIBUTING.md
 └── LICENSE

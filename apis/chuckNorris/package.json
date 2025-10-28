@@ -1,0 +1,20 @@
+{
+  "name": "@useful-apis/chuck-norris",
+  "version": "1.0.0",
+  "description": "Chuck Norris joke API wrapper for fetching random jokes by category or search",
+  "main": "chuckNorris.js",
+  "keywords": [
+    "chuck-norris",
+    "jokes",
+    "api-wrapper",
+    "humor",
+    "random-jokes"
+  ],
+  "author": "Useful-APIs Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vetri-78640/Useful-APIs"
+  },
+  "dependencies": {}
+}
