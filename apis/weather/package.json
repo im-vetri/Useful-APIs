@@ -1,0 +1,21 @@
+{
+  "name": "@useful-apis/weather",
+  "version": "1.0.0",
+  "description": "Real-time weather data using Open-Meteo API with current conditions, hourly, and daily forecasts",
+  "main": "weather.js",
+  "keywords": [
+    "weather",
+    "forecast",
+    "current-weather",
+    "api-wrapper",
+    "climate",
+    "temperature"
+  ],
+  "author": "Useful-APIs Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vetri-78640/Useful-APIs"
+  },
+  "dependencies": {}
+}

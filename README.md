@@ -77,6 +77,32 @@ Examples:
 - [Browser Example](./examples/currencyConverter-browser.html)
 - [Node.js Example](./examples/currencyConverter-node.js)
 
+### 4. Weather API
+
+Real-time weather data and forecasts for any location. Get current conditions, hourly forecasts, and 7-day forecasts with no API key required.
+
+Features:
+- Current weather conditions and 7-day forecasts
+- Hourly forecasts (168 hours ahead)
+- Search by city name or coordinates
+- Temperature unit conversion (°C/°F)
+- No API key required (Open-Meteo)
+- Works in Node.js and Browser
+- Zero dependencies
+
+Quick Start:
+```javascript
+const { getCurrentWeather } = require("./apis/weather/weather.js");
+const weather = await getCurrentWeather('London');
+console.log(`${weather.location.name}: ${weather.current.temperature_2m}°C`);
+```
+
+Documentation: [Read Full Docs](./docs/weather.md)
+
+Examples:
+- [Browser Example](./examples/weather-browser.html)
+- [Node.js Example](./examples/weather-node.js)
+
 ## Project Structure
 
 ```
@@ -94,18 +120,25 @@ Useful-APIs/
 │   │   ├── currencyConverter.js
 │   │   ├── package.json
 │   │   └── README.md
+│   ├── weather/
+│   │   ├── weather.js
+│   │   ├── package.json
+│   │   └── README.md
 │   └── [future-apis]/
 ├── docs/
 │   ├── randomUser.md
 │   ├── chuckNorris.md
-│   └── currencyConverter.md
+│   ├── currencyConverter.md
+│   └── weather.md
 ├── examples/
 │   ├── randomUser-browser.html
 │   ├── randomUser-node.js
 │   ├── chuckNorris-browser.html
 │   ├── chuckNorris-node.js
 │   ├── currencyConverter-browser.html
-│   └── currencyConverter-node.js
+│   ├── currencyConverter-node.js
+│   ├── weather-browser.html
+│   └── weather-node.js
 ├── README.md
 ├── CONTRIBUTING.md
 └── LICENSE
