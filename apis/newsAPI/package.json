@@ -1,0 +1,20 @@
+{
+  "name": "@useful-apis/news-api",
+  "version": "1.0.0",
+  "description": "Get latest news articles by country, category, or keyword search from NewsAPI",
+  "main": "newsAPI.js",
+  "keywords": [
+    "news",
+    "articles",
+    "headlines",
+    "search",
+    "breaking-news"
+  ],
+  "author": "Useful-APIs Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vetri-78640/Useful-APIs"
+  },
+  "dependencies": {}
+}
