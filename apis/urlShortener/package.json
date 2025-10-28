@@ -1,0 +1,20 @@
+{
+  "name": "@useful-apis/url-shortener",
+  "version": "1.0.0",
+  "description": "Shorten long URLs using TinyURL with batch processing and URL validation",
+  "main": "urlShortener.js",
+  "keywords": [
+    "url",
+    "shortener",
+    "tinyurl",
+    "link",
+    "shorten"
+  ],
+  "author": "Useful-APIs Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vetri-78640/Useful-APIs"
+  },
+  "dependencies": {}
+}
