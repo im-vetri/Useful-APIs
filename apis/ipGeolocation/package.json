@@ -1,0 +1,21 @@
+{
+  "name": "@useful-apis/ip-geolocation",
+  "version": "1.0.0",
+  "description": "Get geolocation data from IP addresses including country, city, coordinates, and ISP information",
+  "main": "ipGeolocation.js",
+  "keywords": [
+    "ip",
+    "geolocation",
+    "location",
+    "coordinates",
+    "country",
+    "city"
+  ],
+  "author": "Useful-APIs Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vetri-78640/Useful-APIs"
+  },
+  "dependencies": {}
+}
