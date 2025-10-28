@@ -1,0 +1,21 @@
+{
+  "name": "@useful-apis/movie-database",
+  "version": "1.0.0",
+  "description": "Search for movies and TV shows with detailed information using OMDB API",
+  "main": "movieDatabase.js",
+  "keywords": [
+    "movie",
+    "tv",
+    "show",
+    "database",
+    "omdb",
+    "search"
+  ],
+  "author": "Useful-APIs Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vetri-78640/Useful-APIs"
+  },
+  "dependencies": {}
+}
