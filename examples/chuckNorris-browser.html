@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuck Norris Jokes API - Browser Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .controls {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .button-group.full {
+            grid-template-columns: 1fr;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 8px;
+        }
+
+        input[type="text"], input[type="number"], select {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .joke-display {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 6px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .joke-text {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .joke-meta {
+            color: #999;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .loading {
+            display: none;
+            color: #667eea;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .results-list {
+            margin-top: 20px;
+        }
+
+        .results-title {
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .result-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .result-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .error {
+            background: #fee;
+            color: #c00;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border-left: 4px solid #c00;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .success {
+            background: #efe;
+            color: #080;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border-left: 4px solid #080;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            background: #e7f3ff;
+            color: #0066cc;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border-left: 4px solid #0066cc;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chuck Norris Jokes</h1>
+        <p class="subtitle">Fetch jokes, search by keyword, or browse by category</p>
+
+        <div id="message"></div>
+
+        <div class="controls">
+            <!-- Random Joke -->
+            <div class="button-group full">
+                <button onclick="fetchRandomJoke()">Get Random Joke</button>
+            </div>
+
+            <!-- Multiple Random Jokes -->
+            <div class="button-group">
+                <input type="number" id="jokeCount" min="1" max="10" value="3" placeholder="Count (1-10)">
+                <button onclick="fetchMultipleJokes()">Get Multiple Jokes</button>
+            </div>
+
+            <!-- Search Jokes -->
+            <div class="search-box">
+                <input type="text" id="searchQuery" placeholder="Search jokes...">
+                <button onclick="searchJokes()" style="flex: 0 0 auto; min-width: 80px;">Search</button>
+            </div>
+
+            <!-- Category Joke -->
+            <div class="button-group">
+                <button onclick="fetchCategories()">Load Categories</button>
+                <button onclick="fetchCategoryJoke()" style="display: none;" id="categoryBtn">Get Category Joke</button>
+            </div>
+            <select id="categorySelect" style="display: none;">
+                <option>Select a category...</option>
+            </select>
+        </div>
+
+        <div class="joke-display" id="jokeDisplay" style="display: none;">
+            <div class="joke-text" id="jokeText"></div>
+        </div>
+
+        <div id="jokesMeta" class="joke-meta"></div>
+        <div class="loading" id="loading">Loading...</div>
+
+        <div class="results-list" id="resultsList" style="display: none;">
+            <div class="results-title" id="resultsTitle"></div>
+            <div id="resultsContainer"></div>
+        </div>
+    </div>
+
+    <script src="../apis/chuckNorris/chuckNorris.js"></script>
+
+    <script>
+        function showMessage(text, type = 'info') {
+            const messageEl = document.getElementById('message');
+            messageEl.className = type;
+            messageEl.textContent = text;
+            setTimeout(() => {
+                messageEl.textContent = '';
+                messageEl.className = '';
+            }, 4000);
+        }
+
+        function showLoading(show = true) {
+            document.getElementById('loading').classList.toggle('active', show);
+        }
+
+        function hideResults() {
+            document.getElementById('resultsList').style.display = 'none';
+            document.getElementById('jokeDisplay').style.display = 'none';
+            document.getElementById('jokesMeta').textContent = '';
+        }
+
+        async function fetchRandomJoke() {
+            hideResults();
+            showLoading(true);
+
+            try {
+                const joke = await chuckNorrisAPI.getRandomJoke();
+                displayJoke(joke);
+                showLoading(false);
+            } catch (error) {
+                showMessage('Error fetching joke: ' + error.message, 'error');
+                showLoading(false);
+            }
+        }
+
+        async function fetchMultipleJokes() {
+            hideResults();
+            const count = parseInt(document.getElementById('jokeCount').value);
+
+            if (isNaN(count) || count < 1 || count > 10) {
+                showMessage('Count must be between 1 and 10', 'error');
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                const jokes = await chuckNorrisAPI.getRandomJokes(count);
+                displayMultipleJokes(jokes);
+                showLoading(false);
+            } catch (error) {
+                showMessage('Error fetching jokes: ' + error.message, 'error');
+                showLoading(false);
+            }
+        }
+
+        async function searchJokes() {
+            hideResults();
+            const query = document.getElementById('searchQuery').value.trim();
+
+            if (!query) {
+                showMessage('Please enter a search term', 'error');
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                const results = await chuckNorrisAPI.searchJokes(query);
+                displaySearchResults(results);
+                showLoading(false);
+            } catch (error) {
+                showMessage('Error searching jokes: ' + error.message, 'error');
+                showLoading(false);
+            }
+        }
+
+        async function fetchCategories() {
+            showLoading(true);
+
+            try {
+                const categories = await chuckNorrisAPI.getCategories();
+                displayCategories(categories);
+                showLoading(false);
+                showMessage(`Loaded ${categories.length} categories`, 'success');
+            } catch (error) {
+                showMessage('Error fetching categories: ' + error.message, 'error');
+                showLoading(false);
+            }
+        }
+
+        async function fetchCategoryJoke() {
+            hideResults();
+            const category = document.getElementById('categorySelect').value;
+
+            if (category === 'Select a category...') {
+                showMessage('Please select a category', 'error');
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                const joke = await chuckNorrisAPI.getJokeByCategory(category);
+                displayJoke(joke);
+                showLoading(false);
+            } catch (error) {
+                showMessage('Error fetching category joke: ' + error.message, 'error');
+                showLoading(false);
+            }
+        }
+
+        function displayJoke(joke) {
+            const jokeDisplay = document.getElementById('jokeDisplay');
+            const jokeText = document.getElementById('jokeText');
+            const jokeMeta = document.getElementById('jokesMeta');
+
+            jokeText.textContent = joke.value;
+            jokeMeta.textContent = `ID: ${joke.id} | Categories: ${joke.categories.length > 0 ? joke.categories.join(', ') : 'general'}`;
+            jokeDisplay.style.display = 'flex';
+        }
+
+        function displayMultipleJokes(jokes) {
+            const resultsList = document.getElementById('resultsList');
+            const resultsTitle = document.getElementById('resultsTitle');
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            resultsTitle.textContent = `${jokes.length} Random Jokes`;
+            resultsContainer.innerHTML = jokes
+                .map(joke => `<div class="result-item">${joke.value}</div>`)
+                .join('');
+
+            resultsList.style.display = 'block';
+        }
+
+        function displaySearchResults(results) {
+            const resultsList = document.getElementById('resultsList');
+            const resultsTitle = document.getElementById('resultsTitle');
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            resultsTitle.textContent = `Found ${results.total} joke${results.total !== 1 ? 's' : ''}`;
+            resultsContainer.innerHTML = results.result
+                .map(joke => `<div class="result-item">${joke.value}</div>`)
+                .join('');
+
+            resultsList.style.display = 'block';
+        }
+
+        function displayCategories(categories) {
+            const select = document.getElementById('categorySelect');
+            const categoryBtn = document.getElementById('categoryBtn');
+
+            select.innerHTML = '<option>Select a category...</option>' +
+                categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+
+            select.style.display = 'block';
+            categoryBtn.style.display = 'block';
+        }
+
+        // Enter key support for search
+        document.getElementById('searchQuery').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchJokes();
+        });
+    </script>
+</body>
+</html>
