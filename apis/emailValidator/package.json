@@ -1,0 +1,20 @@
+{
+  "name": "@useful-apis/email-validator",
+  "version": "1.0.0",
+  "description": "Comprehensive email validation with format checking, typo detection, and batch validation",
+  "main": "emailValidator.js",
+  "keywords": [
+    "email",
+    "validation",
+    "verify",
+    "checker",
+    "typo"
+  ],
+  "author": "Useful-APIs Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vetri-78640/Useful-APIs"
+  },
+  "dependencies": {}
+}
