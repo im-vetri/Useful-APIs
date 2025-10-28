@@ -1,0 +1,20 @@
+{
+    "name": "@useful-apis/random-user",
+    "version": "1.0.0",
+    "description": "Generate random user profiles for testing and development",
+    "main": "randomUser.js",
+    "keywords": [
+        "random-user",
+        "mock-data",
+        "testing",
+        "faker",
+        "user-generator"
+    ],
+    "author": "Useful-APIs Contributors",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/im-vetri/Useful-APIs"
+    },
+    "dependencies": {}
+}
