@@ -1,0 +1,20 @@
+{
+  "name": "@useful-apis/qr-code-generator",
+  "version": "1.0.0",
+  "description": "Generate QR codes from text and URLs with customizable size, format, and error correction",
+  "main": "qrCodeGenerator.js",
+  "keywords": [
+    "qr-code",
+    "qr",
+    "barcode",
+    "generator",
+    "encoder"
+  ],
+  "author": "Useful-APIs Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vetri-78640/Useful-APIs"
+  },
+  "dependencies": {}
+}
