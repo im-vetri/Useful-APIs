@@ -1,0 +1,7 @@
+{
+  "name": "dictionary-api",
+  "version": "1.0.0",
+  "description": "Fetches definitions, examples, and phonetics for any English word.",
+  "main": "dictionary.js",
+  "type": "module"
+}
