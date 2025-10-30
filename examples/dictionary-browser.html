@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dictionary API Example</title>
+</head>
+<body>
+  <h2>Dictionary API Example</h2>
+  <input type="text" id="wordInput" placeholder="Enter a word..." />
+  <button onclick="searchWord()">Search</button>
+
+  <pre id="output"></pre>
+
+  <script type="module">
+    import { getWordMeaning } from '../apis/dictionary/dictionary.js';
+
+    async function searchWord() {
+      const word = document.getElementById('wordInput').value.trim();
+      const output = document.getElementById('output');
+      if (!word) return alert("Enter a word!");
+
+      output.textContent = "Loading...";
+      try {
+        const result = await getWordMeaning(word);
+        output.textContent = JSON.stringify(result, null, 2);
+      } catch (err) {
+        output.textContent = "Word not found!";
+      }
+    }
+  </script>
+</body>
+</html>
