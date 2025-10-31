@@ -1,0 +1,8 @@
+{
+  "name": "Statistics Utility API",
+  "version": "1.0.0",
+  "description": "Performs statistical calculations such as mean, median, mode, variance, and standard deviation.",
+  "endpoints": [
+    { "method": "POST", "path": "/api/stats", "description": "Accepts an array and returns its statistical properties." }
+  ]
+}
