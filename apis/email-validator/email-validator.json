@@ -1,0 +1,8 @@
+{
+  "name": "Email Validator API",
+  "version": "1.0.0",
+  "description": "Validates email format and domain existence.",
+  "endpoints": [
+    { "method": "GET", "path": "/api/validate/:email", "description": "Checks if the email is valid and has a valid domain." }
+  ]
+}
