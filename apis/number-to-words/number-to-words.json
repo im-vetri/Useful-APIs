@@ -1,0 +1,8 @@
+{
+  "name": "Number to Words Converter API",
+  "version": "1.0.0",
+  "description": "Converts numerical values into their English word equivalents.",
+  "endpoints": [
+    { "method": "GET", "path": "/convert/:number", "description": "Returns the number in words." }
+  ]
+}
