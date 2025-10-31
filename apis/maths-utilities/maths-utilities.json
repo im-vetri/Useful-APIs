@@ -1,0 +1,10 @@
+{
+  "name": "Math Utilities API",
+  "version": "1.0.0",
+  "description": "Performs basic and advanced math operations via HTTP endpoints.",
+  "endpoints": [
+    { "method": "GET", "path": "/api/add/:a/:b", "description": "Adds two numbers." },
+    { "method": "GET", "path": "/api/factorial/:n", "description": "Returns factorial of n." },
+    { "method": "GET", "path": "/api/prime/:n", "description": "Checks if n is a prime number." }
+  ]
+}

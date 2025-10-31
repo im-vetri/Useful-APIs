@@ -1,12 +1,12 @@
-# 🎨 Color Palette Generator API
+# 🎨 Colour Palette Generator API
 
-This API generates beautiful color palettes — random or theme-based — in seconds.
+This API generates beautiful colour palettes — random or theme-based — in seconds.
 
 ## 🚀 Endpoints
 
 | Method | Endpoint | Description |
 |--------|-----------|-------------|
-| GET | `/api/palette/random` | Generates a random color palette. |
+| GET | `/api/palette/random` | Generates a random colour palette. |
 | GET | `/api/palette/theme/:theme` | Generates a theme-based palette. Themes: pastel, vibrant, dark, neon. |
 
 ## 🧩 Example Response
