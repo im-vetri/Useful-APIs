@@ -1,0 +1,9 @@
+{
+  "name": "Date & Time Formatter API",
+  "version": "1.0.0",
+  "description": "Formats dates and times into readable strings and converts between time zones.",
+  "endpoints": [
+    { "method": "GET", "path": "/api/now", "description": "Returns current date & time in ISO and readable format." },
+    { "method": "GET", "path": "/api/format/:timestamp", "description": "Formats a timestamp into DD-MM-YYYY HH:mm:ss." }
+  ]
+}
