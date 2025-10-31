@@ -1,0 +1,9 @@
+{
+  "name": "UUID & Token Generator API",
+  "version": "1.0.0",
+  "description": "Generates unique UUIDv4 and customizable random tokens.",
+  "endpoints": [
+    { "method": "GET", "path": "/api/uuid", "description": "Generates a UUIDv4 string." },
+    { "method": "GET", "path": "/api/token/:length", "description": "Generates a random token of given length." }
+  ]
+}
