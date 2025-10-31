@@ -1,0 +1,10 @@
+{
+  "name": "quote-generator",
+  "version": "1.0.0",
+  "description": "Generate random motivational quotes for inspiration, testing, or mock data.",
+  "main": "quoteGenerator.js",
+  "type": "commonjs",
+  "keywords": ["quotes", "motivational", "random", "api", "javascript"],
+  "author": "Your Name",
+  "license": "MIT"
+}
