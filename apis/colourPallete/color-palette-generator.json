@@ -1,17 +1,6 @@
 {
-  "name": "Color Palette Generator API",
-  "version": "1.0.0",
-  "description": "Generates random or theme-based color palettes in HEX, RGB, or HSL formats.",
-  "endpoints": [
-    {
-      "method": "GET",
-      "path": "/api/palette/random",
-      "description": "Returns a random color palette of 5 colors."
-    },
-    {
-      "method": "GET",
-      "path": "/api/palette/theme/:theme",
-      "description": "Returns a theme-based palette. Supported themes: 'pastel', 'vibrant', 'dark', 'neon'."
-    }
-  ]
+  "name": "Color Palette Generator",
+  "version": "1.0.1",
+  "description": "Generates random or theme-based color palettes as JavaScript utility functions.",
+  "exports": ["generatePalette(theme)"]
 }
