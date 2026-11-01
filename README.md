@@ -103,6 +103,26 @@ Examples:
 - [Browser Example](./examples/weather-browser.html)
 - [Node.js Example](./examples/weather-node.js)
 
+### 5. Daily Experience
+
+One travel or life experience selected daily by Bucketlist.nl.
+
+Features:
+- No API key, account or dependency required
+- Dutch / Netherlands defaults; documented language, scope and theme options
+- Works in Node.js 18+ and modern browsers
+- Returns canonical source links and attribution without downloading images
+
+Quick Start:
+```javascript
+const { getDailyExperience } = require("./apis/dailyExperience/dailyExperience.js");
+getDailyExperience()
+  .then(result => console.log(result.dream.title, result.dream.canonicalUrl))
+  .catch(console.error);
+```
+
+Documentation and Node.js / browser examples: [Read Full Docs](./apis/dailyExperience/README.md)
+
 ## Project Structure
 
 ```
@@ -123,6 +143,9 @@ Useful-APIs/
 │   ├── weather/
 │   │   ├── weather.js
 │   │   ├── package.json
+│   │   └── README.md
+│   ├── dailyExperience/
+│   │   ├── dailyExperience.js
 │   │   └── README.md
 │   └── [future-apis]/
 ├── docs/
